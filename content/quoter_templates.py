@@ -75,7 +75,7 @@ def page(content,user_id,title,error=None):
 
 <header>
   <div class="title">
-    <a class="home" href="/">Private Quoter XP van Jop Geelink</a>
+    <a class="home" href="/">Quoter XP</a>
     {links}
   </div>
 </header>
