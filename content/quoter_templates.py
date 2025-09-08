@@ -60,13 +60,13 @@ def page(content,user_id,title,error=None):
 """
     else:
         links = f"""
-<label class="link" for="signinCheckbox">Inloggen op app van Jop Geelink</label>
+<label class="link" for="signinCheckbox">Inloggen op private app van Jop Geelink</label>
 """
 
     return f"""<!DOCTYPE html>
 <html lang="en-US">
 <head>
-  <title>{title or "Private Quoter XP"}</title>
+  <title>{title or "Quoter XP"}</title>
   <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="/static/style.css">
 </head>
@@ -75,7 +75,7 @@ def page(content,user_id,title,error=None):
 
 <header>
   <div class="title">
-    <a class="home" href="/">Quoter XP</a>
+    <a class="home" href="/">Private Quoter XP van Jop Geelink</a>
     {links}
   </div>
 </header>
