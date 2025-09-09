@@ -30,10 +30,14 @@ def check_authentication():
 
 
 # The main page
+import html
+
 @app.route("/")
 def index():
     quotes = db.execute("select id, text, attribution from quotes order by id").fetchall()
-    return templates.main_page(quotes, request.user_id, request.args.get('error'))
+    error = request.args.get('error')
+    safe_error = html.escape(error) if error else None
+    return templates.main_page(quotes, request.user_id, safe_error)
 
 
 # The quote comments page
