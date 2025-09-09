@@ -60,7 +60,7 @@ def page(content,user_id,title,error=None):
 """
     else:
         links = f"""
-<label class="link" for="signinCheckbox">Inloggen op private app van Jop Geelink#2025!</label>
+<label class="link" for="signinCheckbox">Inloggen op private app van Jop Geelink#2026!</label>
 """
 
     return f"""<!DOCTYPE html>
