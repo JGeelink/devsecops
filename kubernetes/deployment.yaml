@@ -23,4 +23,4 @@ spec:
         ports:
           - containerPort: 5000
       imagePullSecrets:
-        - name: ${{ secrets.KUBERNETES_SECRET }}
+        - name: my-registry-secret
