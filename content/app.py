@@ -30,23 +30,10 @@ def check_authentication():
 
 
 # The main page
-import bleach
-
 @app.route("/")
 def index():
-    quotes = db.execute(
-        "SELECT id, text, attribution FROM quotes ORDER BY id"
-    ).fetchall()
-
-    # Get and sanitize the query parameter before using it
-    raw_error = request.args.get("error", "")
-    error = bleach.clean(raw_error, strip=True)
-
-    return templates.main_page(
-        quotes,
-        request.user_id,
-        error
-    )
+    quotes = db.execute("select id, text, attribution from quotes order by id").fetchall()
+    return templates.main_page(quotes, request.user_id, request.args.get('error'))
 
 
 # The quote comments page
@@ -61,7 +48,10 @@ def get_comments_page(quote_id):
 @app.route("/quotes", methods=["POST"])
 def post_quote():
     with db:
-        db.execute(f"""insert into quotes(text,attribution) values("{request.form['text']}","{request.form['attribution']}")""")
+        db.execute(
+            "INSERT INTO quotes(text, attribution) VALUES(?, ?)",
+            (request.form["text"], request.form["attribution"])
+        )
     return redirect("/#bottom")
 
 
