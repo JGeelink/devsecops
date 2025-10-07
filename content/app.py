@@ -95,3 +95,7 @@ def signout():
     response = make_response(redirect('/'))
     response.delete_cookie('user_id')
     return response
+
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)
